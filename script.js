@@ -124,10 +124,10 @@ form.addEventListener('submit', e => {  // lyssnar efter ett event 'submit'
   console.log(errors)
 
   if(errors.includes(false)) {        // kollar om arrayen errors innehåller ett false värde
-    console.log('Något gick fel ):')
+    console.log('Något gick fel :(')
   }
   else {
-    console.log('Vi har tagit emot dina uppgifter (:')
+    console.log('Vi har tagit emot dina uppgifter :)')
   }
 
 })
