@@ -30,7 +30,7 @@ const validateEmail = (id) => {
   }
 }
 const validatePassword = (id) => {
-  const password = document.querySelector(id)
+  const input = document.querySelector(id)
   
   if(input.value.trim() === ''){
     return setError(input)
@@ -43,7 +43,7 @@ else{
 }
 }
 const validateRepeatPassword = (id) => {
-  const repeatPassword = document.querySelector(id)
+  const input = document.querySelector(id)
   
   if(!input.value.trim() === ''){
     return setError(input)
@@ -110,10 +110,10 @@ form.addEventListener('submit', e => {  // lyssnar efter ett event 'submit'
     else if(form[i].type === 'email') {     //Kollar om den aktuella inputen är av typen email
       errors[i] = validateEmail(inputId)
     }
-    else if(form[i].type === 'password' && inputId === 'repeatPassword'){
+    else if(form[i].type === 'password' && inputId === '#repeatPassword'){
       errors[i] = validateRepeatPassword(inputId)
     }
-    else if(form[i].typr === 'password'){
+    else if(form[i].type === 'password'){
       errors[i] = validatePassword(inputId)
     }
     else if(form[i].type === 'checkbox') {     //Kollar om den aktuella inputen är av typen checkbox
@@ -124,7 +124,7 @@ form.addEventListener('submit', e => {  // lyssnar efter ett event 'submit'
   console.log(errors)
 
   if(errors.includes(false)) {        // kollar om arrayen errors innehåller ett false värde
-    console.log('Du har missat att fylla i något ):')
+    console.log('Något gick fel ):')
   }
   else {
     console.log('Vi har tagit emot dina uppgifter (:')
