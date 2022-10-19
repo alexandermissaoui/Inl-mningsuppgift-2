@@ -2,10 +2,10 @@ const form = document.querySelector('#validationForm');
 const btn = document.querySelector('#btn');
 
 const validateText = (id) => {
-  const input = document.querySelector(id)    // hämtar en referens till våran input med hjälp av id
+  const input = document.querySelector(id)    
 
   if(input.value.trim() === '') {
-    return setError(input)                   // Här kallar vi på setError funktionen och skickar med våran referens till input
+    return setError(input)                   
   } 
   else if (input.value.length < 2) {
     return setError(input)
@@ -71,7 +71,7 @@ const setSuccess = (input) => {
   input.classList.add('is-valid');
   return true;
 }
-const setError = (input) => {        // Deklarerar setError och tar emot en input referens
+const setError = (input) => {        
   input.classList.add('is-invalid');
   input.classList.remove('is-valid');
   input.focus();
@@ -79,35 +79,18 @@ const setError = (input) => {        // Deklarerar setError och tar emot en inpu
 }
 
 
-form.addEventListener('submit', e => {  // lyssnar efter ett event 'submit'
-  e.preventDefault()                    // förhindrar webbläsaren att ladda om sidan
+form.addEventListener('submit', e => {  
+  e.preventDefault()                    
 
-  // validateText('#firstName')
-  // validateText('#lastName')
-  // validateEmail('#email')
-  // validateCheck('#terms')
-
-  // if(validateText('#firstName') &&
-  // validateText('#lastName') &&
-  // validateEmail('#email') &&
-  // validateCheck('#terms')) {
-
-  //   console.log('skickar iväg till databasen')
-  // }
-
-  const errors = [];  // skapar en tom array där vi kan lägga eventuella error
-
+  const errors = [];  
   for(let i = 0; i < form.length; i++) {
-    // console.log(form[i])
-    // console.log(form[i].type)
-    // console.log(form[i].id)
-    const inputId = '#' + form[i].id  // plockar ut id på den aktuella inputen
-    // console.log(inputId)
+   
+    const inputId = '#' + form[i].id  
 
-    if(form[i].type === 'text') {     //Kollar om den aktuella inputen är av typen text
-      errors[i] = validateText(inputId) // validerar rätt typ av input
+    if(form[i].type === 'text') {     
+      errors[i] = validateText(inputId) 
     } 
-    else if(form[i].type === 'email') {     //Kollar om den aktuella inputen är av typen email
+    else if(form[i].type === 'email') {     
       errors[i] = validateEmail(inputId)
     }
     else if(form[i].type === 'password' && inputId === '#repeatPassword'){
@@ -116,14 +99,14 @@ form.addEventListener('submit', e => {  // lyssnar efter ett event 'submit'
     else if(form[i].type === 'password'){
       errors[i] = validatePassword(inputId)
     }
-    else if(form[i].type === 'checkbox') {     //Kollar om den aktuella inputen är av typen checkbox
+    else if(form[i].type === 'checkbox') {     
       errors[i] = validateCheck(inputId)
     }
   }
 
   console.log(errors)
 
-  if(errors.includes(false)) {        // kollar om arrayen errors innehåller ett false värde
+  if(errors.includes(false)) {        
     console.log('Något gick fel :(')
   }
   else {
