@@ -77,7 +77,7 @@ const setError = (input) => {
   input.focus();
   return false;
 }
-//Förhindrar sidan att laddas om när formuläret ska valideras!
+// Förhindrar sidan att laddas om när formuläret ska valideras!
 form.addEventListener('submit', e => {  
   e.preventDefault()                    
 
