@@ -123,25 +123,14 @@ form.addEventListener('submit', e => {
   else {
     console.log('Vi har tagit emot dina uppgifter :)')
     errorMessage.classList.add('d-none')
-  }
-  function validateForm() {                   
-    if(validateText == true &&
-    validateEmail() == true &&
-    validatePassword() == true && 
-    validateCheck() ) {
-        console.log('Du har fyllt i alla uppgifter korrekt!')       
-        return setSuccess();
-    } else {
-        return setError();
+    const user = {      
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
     }
-  }
-  const user = {      
-    firstName: firstName.value,
-    lastName: lastName.value,
-    email: email.value,
-    password: password.value,
-  }
-  console.log(user)       
+    console.log(user) 
+  }    
 })
 
 
