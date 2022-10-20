@@ -4,18 +4,23 @@
 // Om något av fälten inte är ifyllda eller checkrutan inte är iklickad så ska du logga ett felmeddelande i consolen där du skriver att någonting har gått fel!
 // Om valideringen går igenom så ska du istället logga ut ett success meddelande i consolen och skapa ett user objekt som har följande fält: firstName, lastName, email, password. Detta objekt ska också skrivas ut i consolen!
 // Alla fälten ska valideras så att korrekt information skriv in. ( email måste vara en emailadress, lösenorden måste matcha varandra samt ha en längd på minst 6 och ett namn ska inte få vara kortare än 2 bokstäver samt inte innehålla några siffror)
+// Om det är något fel i valideringen så ska du visa texten i validation-feedback diven längst ner i formuläret genom att ta bort klassen d-none på p taggen.
 
 const form = document.querySelector('#validationForm');
-const btn = document.querySelector('#btn');
+const errorMessage = document.querySelector('#errorMessage');
 
 const validateText = (id) => {
-  const input = document.querySelector(id)    
+  const input = document.querySelector(id) 
+  const regText = /^[a-öA-Ö\s\-]*$/;   
 
   if(input.value.trim() === '') {
     return setError(input)                   
   } 
   else if (input.value.length < 2) {
     return setError(input)
+  }
+  else if (!regText.test(input.value)) {
+    return setError(input);
   }
   else {
     return setSuccess(input)
@@ -114,9 +119,11 @@ form.addEventListener('submit', e => {
 
   if(errors.includes(false)) {        
     console.log('Något gick fel :(')
+    errorMessage.classList.remove('d-none')
   }
   else {
     console.log('Vi har tagit emot dina uppgifter :)')
+    errorMessage.classList.add('d-none')
   }
   // Objekt som har följande fält: firstName, lastName, email, password. Skrivs ut i consolen!
   function validateForm() {                   
