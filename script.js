@@ -5,6 +5,7 @@
 // Om valideringen går igenom så ska du istället logga ut ett success meddelande i consolen och skapa ett user objekt som har följande fält: firstName, lastName, email, password. Detta objekt ska också skrivas ut i consolen!
 // Alla fälten ska valideras så att korrekt information skriv in. ( email måste vara en emailadress, lösenorden måste matcha varandra samt ha en längd på minst 6 och ett namn ska inte få vara kortare än 2 bokstäver samt inte innehålla några siffror)
 // Om det är något fel i valideringen så ska du visa texten i validation-feedback diven längst ner i formuläret genom att ta bort klassen d-none på p taggen.
+// När man har fyllt i alla fälten korrekt och trycker på "validate" så ska du dölja felmeddelandet längst ner igen och även skriva ut ett success meddelande i consolen!
 
 const form = document.querySelector('#validationForm');
 const errorMessage = document.querySelector('#errorMessage');
