@@ -1,3 +1,10 @@
+
+// Förhindra sidan att laddas om när formuläret ska valideras!
+// Validera alla fälten så att alla fält måste ha ett innehåll och checkrutan måste klickas i!
+// Om något av fälten inte är ifyllda eller checkrutan inte är iklickad så ska du logga ett felmeddelande i consolen där du skriver att någonting har gått fel!
+// Om valideringen går igenom så ska du istället logga ut ett success meddelande i consolen och skapa ett user objekt som har följande fält: firstName, lastName, email, password. Detta objekt ska också skrivas ut i consolen!
+// Alla fälten ska valideras så att korrekt information skriv in. ( email måste vara en emailadress, lösenorden måste matcha varandra samt ha en längd på minst 6 och ett namn ska inte få vara kortare än 2 bokstäver samt inte innehålla några siffror)
+
 const form = document.querySelector('#validationForm');
 const btn = document.querySelector('#btn');
 
