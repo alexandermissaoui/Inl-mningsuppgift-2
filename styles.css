@@ -12,7 +12,6 @@ body {
   display: grid;
   place-items: center;
 }
-
 .validation-form {
   width: 500px;
   background-color: #ffffff;
