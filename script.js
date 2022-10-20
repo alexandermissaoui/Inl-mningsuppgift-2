@@ -89,7 +89,6 @@ const setError = (input) => {
   input.focus();
   return false;
 }
-// Förhindrar sidan att laddas om när formuläret ska valideras!
 form.addEventListener('submit', e => {  
   e.preventDefault()                    
 
@@ -114,7 +113,6 @@ form.addEventListener('submit', e => {
       errors[i] = validateCheck(inputId)
     }
   }
-  // Felmeddelande och bekräftelsemeddelande
   console.log(errors)
 
   if(errors.includes(false)) {        
@@ -125,7 +123,6 @@ form.addEventListener('submit', e => {
     console.log('Vi har tagit emot dina uppgifter :)')
     errorMessage.classList.add('d-none')
   }
-  // Objekt som har följande fält: firstName, lastName, email, password. Skrivs ut i consolen!
   function validateForm() {                   
     if(validateText == true &&
     validateEmail() == true &&
