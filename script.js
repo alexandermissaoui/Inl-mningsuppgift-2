@@ -1,12 +1,3 @@
-
-// Förhindra sidan att laddas om när formuläret ska valideras!
-// Validera alla fälten så att alla fält måste ha ett innehåll och checkrutan måste klickas i!
-// Om något av fälten inte är ifyllda eller checkrutan inte är iklickad så ska du logga ett felmeddelande i consolen där du skriver att någonting har gått fel!
-// Om valideringen går igenom så ska du istället logga ut ett success meddelande i consolen och skapa ett user objekt som har följande fält: firstName, lastName, email, password. Detta objekt ska också skrivas ut i consolen!
-// Alla fälten ska valideras så att korrekt information skriv in. ( email måste vara en emailadress, lösenorden måste matcha varandra samt ha en längd på minst 6 och ett namn ska inte få vara kortare än 2 bokstäver samt inte innehålla några siffror)
-// Om det är något fel i valideringen så ska du visa texten i validation-feedback diven längst ner i formuläret genom att ta bort klassen d-none på p taggen.
-// När man har fyllt i alla fälten korrekt och trycker på "validate" så ska du dölja felmeddelandet längst ner igen och även skriva ut ett success meddelande i consolen!
-
 const form = document.querySelector('#validationForm');
 const errorMessage = document.querySelector('#errorMessage');
 
@@ -15,6 +6,7 @@ const validateText = (id) => {
   const regText = /^[a-öA-Ö\s\-]*$/;   
 
   if(input.value.trim() === '') {
+    console.log('Fyll i för- och efternamn!')
     return setError(input)                   
   } 
   else if (input.value.length < 2) {
@@ -33,6 +25,7 @@ const validateEmail = (id) => {
   const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$/
 
   if(email.value.trim() === '') {
+    console.log('Fyll i email!')
     return setError(email)
   }
   else if(!regEx.test(email.value)) {
@@ -46,6 +39,7 @@ const validatePassword = (id) => {
   const input = document.querySelector(id)
   
   if(input.value.trim() === ''){
+    console.log('Fyll i lösenord!')
     return setError(input)
   }
 else if (input.value.length < 6){
@@ -65,7 +59,7 @@ else if (password.value === input.value){
   return setSuccess(input)
 }
 else{
-  console.log('error')
+  console.log('Upprepa lösenordet!')
   return setError(input)
 }
 }
@@ -73,6 +67,7 @@ const validateCheck = (id) => {
   const checkbox = document.querySelector(id)
 
   if(!checkbox.checked) {
+    console.log('Fyll i checkbox!')
     return setError(checkbox)
   }
   else {
